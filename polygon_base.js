@@ -1,13 +1,13 @@
 import React from 'react';
 import TabbedSide from './tabbedside';
-import { polarToCartesian } from './svgutils';
+import { polarToCartesian, apothemToRadius, apothemToSideLength } from './svgutils';
 
 
 
 export default ({centreX, centreY, sides, apothem, tabOffset, tabLength, tabDepth, swarf=0, bleed=0}) => {
   const degreeIncrement = 360/sides;
-  const length = 2*apothem * Math.tan(Math.PI/sides);
-  const radius = apothem /Math.cos(Math.PI/sides);
+  const length = apothemToSideLength(apothem, sides);
+  const radius = apothemToRadius(apothem, sides);
   return (
     <g>
       {new Array(sides).fill('foo').map((p, i) => {

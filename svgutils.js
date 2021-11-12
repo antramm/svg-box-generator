@@ -5,12 +5,12 @@ export function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
     y: centerY + (radius * Math.sin(angleInRadians))
   };
 }
-export function apothemToRadius(apthem, sides) {
-
+export function apothemToRadius(apothem, sides) {
+  return apothem / Math.cos(Math.PI/sides);
 }
 
 export function apothemToSideLength(apothem, sides) {
-  
+  return 2*apothem * Math.tan(Math.PI/sides);
 }
 export function arc(x, y, radius, startAngle, endAngle, closeShape) {
 

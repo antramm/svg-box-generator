@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import Configurator from './Configurator';
 import { arc, pie, star, onePolygonSide } from './svgutils';
 import PolygonBase from './polygon_base';
+import Side from './side';
 import './style.css';
 
 
@@ -32,7 +33,7 @@ class App extends Component {
 
     const{centreX, centreY, sides, apothem, height, tabOffset, tabLength, tabDepth, swarf, bleed} = this.state;
     const totalHeight = 20 + height;
-    const totalWidth = 20+ apothem * 5;
+    const totalWidth = 20+ apothem * 3+height;
     return (
       <div>
       <h4> Star Generator</h4>
@@ -40,6 +41,7 @@ class App extends Component {
         <br/>
         <svg ref={z => this.zone = z} width={`${totalWidth}mm`} height={`${totalHeight}mm`} viewBox={`0 0 ${totalWidth} ${totalHeight}`}>
           <PolygonBase centreX={30+apothem} centreY={10+apothem} sides={sides} apothem={apothem} tabOffset={tabOffset} tabLength={tabLength} tabDepth={tabDepth} swarf={swarf} bleed={bleed}/>
+          <Side centreX={apothem*3+tabDepth+bleed} centreY={10} sides={sides} apothem={apothem} height={height} tabOffset={tabOffset} tabLength={tabLength} tabDepth={tabDepth} swarf={swarf} bleed={bleed}/>
         </svg>
       </div>
     );
