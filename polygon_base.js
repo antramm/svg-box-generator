@@ -13,12 +13,9 @@ export default ({centreX, centreY, sides, apothem, tabOffset, tabLength, tabDept
       {new Array(sides).fill('foo').map((p, i) => {
         let rotation = degreeIncrement*i;
         const pnt = polarToCartesian(centreX, centreY, radius, rotation-180/sides);
-        console.log(pnt)
+
         return (
-          <g>
           <TabbedSide point={pnt} length={length} offset={tabOffset} tabLength={tabLength} tabDepth={tabDepth} rotation={rotation} />
-          {/* <circle cx={pnt.x} cy={pnt.y} r="5" /> */}
-          </g>
         )
       })}
     </g>
