@@ -12,9 +12,9 @@ export default ({point, rotation=0, length, offset, tabLength, tabDepth,swarf=0,
   let points = [];
   for(let i=0;i<numberOfTabs;i++) {
     points.push({x:realOffset+i*wavelength-swf, y:0});
-    points.push({x:realOffset+i*wavelength, y:direction * tabDepth});
-    points.push({x:realOffset+i*wavelength+tabLength, y: direction * tabDepth});
-    points.push({x:realOffset+i*wavelength+tabLength, y:0});
+    points.push({x:realOffset+i*wavelength-swf, y:direction * tabDepth});
+    points.push({x:realOffset+i*wavelength+tabLength+swf, y: direction * tabDepth});
+    points.push({x:realOffset+i*wavelength+tabLength+swf, y:0});
   };
   points.unshift({x:-firstOffset,y:0});
   points.push({x:length-lastOffset,y:0});

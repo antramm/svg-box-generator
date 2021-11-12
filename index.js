@@ -32,8 +32,8 @@ class App extends Component {
   render() {
 
     const{centreX, centreY, sides, apothem, height, tabOffset, tabLength, tabDepth, swarf, bleed} = this.state;
-    const totalHeight = 20 + height;
-    const totalWidth = 20+ apothem * 3+height;
+    const totalHeight = 30 + apothem*2.5;
+    const totalWidth = 30+ apothem * 3+height;
     return (
       <div>
       <h4> Star Generator</h4>
@@ -41,7 +41,7 @@ class App extends Component {
         <br/>
         <svg ref={z => this.zone = z} width={`${totalWidth}mm`} height={`${totalHeight}mm`} viewBox={`0 0 ${totalWidth} ${totalHeight}`}>
           <PolygonBase centreX={30+apothem} centreY={10+apothem} sides={sides} apothem={apothem} tabOffset={tabOffset} tabLength={tabLength} tabDepth={tabDepth} swarf={swarf} bleed={bleed}/>
-          <Side centreX={apothem*3+tabDepth+bleed} centreY={10} sides={sides} apothem={apothem} height={height} tabOffset={tabOffset} tabLength={tabLength} tabDepth={tabDepth} swarf={swarf} bleed={bleed}/>
+          <Side centreX={20+apothem*3+tabDepth+bleed} centreY={10} sides={sides} apothem={apothem} height={height} tabOffset={tabOffset} tabLength={tabLength} tabDepth={tabDepth} swarf={swarf} bleed={bleed}/>
         </svg>
       </div>
     );

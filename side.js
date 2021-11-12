@@ -13,10 +13,10 @@ export default ({centreX, centreY, sides, apothem, height, tabOffset, tabLength,
 
   return (
     <g transform={`translate(${centreX} ${centreY})`}>
-      <TabbedSide point={{x:0,y:indentOffset}} length={height} offset={tabOffset} tabLength={tabLength} tabDepth={tabDepth+outdentOffset+bleed} rotation={0} inside={true}/>
+      <TabbedSide point={{x:0,y:indentOffset}} length={height} offset={tabOffset} tabLength={tabLength} tabDepth={tabDepth+outdentOffset+bleed} rotation={0} inside={true} swarf={swarf} />
       <path d={`M ${height},${indentOffset},${height},${length+outdentOffset+bleed}`} stroke="#f00" strokeWidth="0.3" />
       <TabbedSide point={{x:height,y:length+outdentOffset+bleed}} length={height} offset={tabOffset} tabLength={tabLength} tabDepth={tabDepth+outdentOffset+bleed} rotation={180} />
-      <TabbedSide point={{x:0,y:length}} length={length} offset={tabOffset} tabLength={tabLength} tabDepth={tabDepth+bleed} rotation={270} inside={true} firstOffset={outdentOffset+bleed} lastOffset={indentOffset} />
+      <TabbedSide point={{x:0,y:length}} length={length} offset={tabOffset} tabLength={tabLength} tabDepth={tabDepth+bleed} rotation={270} inside={true} firstOffset={outdentOffset+bleed} lastOffset={indentOffset} swarf={swarf} />
 
     </g>
   )

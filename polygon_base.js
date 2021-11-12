@@ -7,6 +7,8 @@ import { polarToCartesian, apothemToRadius, apothemToSideLength } from './svguti
 export default ({centreX, centreY, sides, apothem, tabOffset, tabLength, tabDepth, swarf=0, bleed=0}) => {
   const degreeIncrement = 360/sides;
   const length = apothemToSideLength(apothem+bleed, sides);
+  const originalLength = apothemToSideLength(apothem, sides);
+  const lenDifference = (length - originalLength)/2
   const radius = apothemToRadius(apothem+bleed, sides);
   
   return (
@@ -16,7 +18,7 @@ export default ({centreX, centreY, sides, apothem, tabOffset, tabLength, tabDept
         const pnt = polarToCartesian(centreX, centreY, radius, rotation-180/sides);
 
         return (
-          <TabbedSide point={pnt} length={length} offset={tabOffset} tabLength={tabLength} tabDepth={tabDepth+bleed} rotation={rotation} />
+          <TabbedSide point={pnt} length={length} offset={tabOffset+lenDifference} tabLength={tabLength} tabDepth={tabDepth+bleed} rotation={rotation} />
         )
       })}
     </g>
