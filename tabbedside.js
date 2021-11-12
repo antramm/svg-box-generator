@@ -20,5 +20,5 @@ export default ({point, rotation=0, length, offset, tabLength, tabDepth,swarf=0,
     return `${point.x},${point.y}`;
   })
   const transform = `translate(${point.x} ${point.y}) rotate(${rotation})`;
-  return <path d={"M "+d} fill="transparent" stroke="rgba(255,0,0,0.2)" strokeWidth="2" transform={transform} />
+  return <path d={"M "+d} fill="transparent" stroke="#f00" strokeWidth="0.3" transform={transform} />
 };
